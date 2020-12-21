@@ -14,6 +14,8 @@ function createHtmlElm(elmName){
      body.appendChild(elm);
      return elm;
 };
+
+
 function establishStyle(elm,left,top,width,height){
     elm.style.left = left;
     elm.style.top = top;
@@ -24,6 +26,7 @@ function createSvgElm(elmName){
     let elm = document.createElementNS("http://www.w3.org/2000/svg",elmName);
     elm.setAttribute("stroke","black");
     svg.appendChild(elm);
+    elm.setAttribute("stroke-width",3);
     elm.setAttribute("fill-opacity",0);
     return elm;
 };
@@ -79,6 +82,10 @@ function dragElement(elmnt,status) {
           elmnt.setAttribute("x",svgNumberValue(elmnt,"x")-pos1);
 
       }
+      else if(elmnt.hasAttribute('cx')){
+        elmnt.setAttribute("cy",svgNumberValue(elmnt,"cy") - pos2);
+        elmnt.setAttribute("cx",svgNumberValue(elmnt,"cx")-pos1);
+      }
       else if (elmnt.hasAttribute("startX")){
           elmnt.setAttribute("startX",svgNumberValue(elmnt,"startX")-pos1);
           elmnt.setAttribute("startY",svgNumberValue(elmnt,"startY")-pos2);
@@ -111,7 +118,6 @@ function dragElement(elmnt,status) {
 
   function toggleColor(elm,choice,color){
     let prevColor = elm.style[choice];
-    console.log(prevColor);
     elm.addEventListener("mouseover",()=>{
       elm.style[choice] = color
     });
@@ -119,3 +125,143 @@ function dragElement(elmnt,status) {
       elm.style[choice] = prevColor;
     })
   }
+
+  function dragElm({drag}){
+    let target;
+    drag.addEventListener("click",()=>{
+        if(drag.innerHTML !== "stop drag"){
+            drag.innerHTML = "stop drag";
+            target = document.querySelector(".specific");
+            dragElement(target);
+            target.style.cursor = "move";
+        }
+        else{
+            drag.innerHTML = "drag";
+            target.style.cursor = "auto";
+            dragElement(target,null);
+
+        }
+    })
+}
+function createDataListObj(){
+  let obj = {
+      parent: createHtmlElm("div"),
+      search: document.createElement("input"),
+     datalist: createHtmlElm("datalist"),
+     submit: document.createElement("button"),
+     exit: document.createElement("button"),
+      setUpDataId(id){
+          
+          this.datalist.id = id;
+          this.search.setAttribute("list",id);
+          return this;
+      },
+      addOption(value,text){
+          let option = document.createElement("option");
+          this.datalist.appendChild(option);
+          option.value = value;
+          //option.id = value;
+          option.innerHTML = text || value;
+          return this;
+      },
+      
+  }
+  obj.parent.style.width = 200;
+  obj.parent.style.height = 100;
+  obj.parent.style.border = "solid black 5px"
+  obj.parent.appendChild(obj.search);
+  obj.parent.appendChild(obj.submit);
+  obj.parent.appendChild(obj.exit);
+
+  obj.submit.innerHTML = "submit";
+  obj.exit.innerHTML = "exit";
+  toggleColor(obj.parent,"borderColor","blue");
+  obj.parent.style.zIndex = 2;
+  return obj;
+}
+
+function actionContext(generalClass,menu,dataRef){
+
+  let obj = {
+      menu: menu,
+
+      blueHover(){
+          let target;
+          window.addEventListener("mouseover",(e)=>{
+              if(e.target.classList.contains(generalClass)){
+                  target = e.target;
+                  target.style.borderColor = "blue";
+              }
+          });
+          window.addEventListener("mouseout",()=>{
+              //target.classList.remove("blueBorder");
+              if(target !== undefined){
+                  target.style.borderColor = "black";
+              }
+              
+              
+          });
+
+         
+          return this;
+          
+      },
+      dragElm(){
+          dragElm(this.menu);
+          let target;
+          let drag = this.menu.drag;
+          drag.addEventListener("click",()=>{
+              target = document.querySelector('.specific');
+              target.addEventListener("mouseup",()=>{
+                  dataRef.child(target.getAttribute("dataKey")).update({
+                      left: htmlNumberValue(target,"left"),
+                      top: htmlNumberValue(target,"top"),
+                  });
+              })
+          })
+          return this;
+      },
+      removeElm(){
+          let target;
+          this.menu.remove.addEventListener("click",()=>{
+          target = document.querySelector(".specific");
+          //target.remove();
+          target.style.display = "none";
+          dataRef.child(target.getAttribute("dataKey")).remove();
+          })
+          return this;
+      },
+      resizeElm(){
+          let target;
+          this.menu.resize.addEventListener("click",()=>{
+              if(this.menu.resize.innerHTML !== "stop resize"){
+                  this.menu.resize.innerHTML = "stop resize";
+                  target = document.querySelector(".specific");
+                  target.style.overflow = "auto";
+                  target.style.resize = "both";
+              }
+              else{
+                  this.menu.resize.innerHTML = "resize";
+                  target.style.resize = "";
+              }
+              target.addEventListener("mouseup",()=>{
+                  dataRef.child(target.getAttribute("dataKey")).update({
+                  width: htmlNumberValue(target,"width"),
+                  height: htmlNumberValue(target,"height"),
+      
+                  });
+                 
+              });
+              
+          })
+          return this;
+      }
+  
+  }
+  obj.blueHover()
+  .dragElm()
+  .removeElm()
+  .resizeElm()
+  return obj;
+
+}

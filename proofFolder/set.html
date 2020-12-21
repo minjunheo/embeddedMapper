@@ -3,15 +3,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel = "stylesheet" href="/app.css">
 </head>
 <body>
-    <script src="/framework.js"></script>
+    <svg width = 100000 height = 100000>
+
+    </svg>
+    <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase.js"></script>
     <script>
-        let button = createHtmlElm("button");
-        establishStyle(button,100,100,100,100);
-        button.addEventListener("click",()=>{
-            button.innerHTML = "asser" + 1;
-        });
+        var firebaseConfig = {
+    apiKey: "AIzaSyCRZGV97TiKLyQ2fg8g5HHHOuecdCnQM58",
+    authDomain: "proofmemory-f5510.firebaseapp.com",
+    projectId: "proofmemory-f5510",
+    storageBucket: "proofmemory-f5510.appspot.com",
+    messagingSenderId: "98127012642",
+    appId: "1:98127012642:web:e74c1c3d84233d0151fb7b",
+    measurementId: "G-HQC56Z6YEW"
+  };
+  var secondaryAppConfig = {
+    projectId: "proofmemory-f5510",
+    appId: "1:98127012642:web:e74c1c3d84233d0151fb7b",
+    apiKey: "AIzaSyCRZGV97TiKLyQ2fg8g5HHHOuecdCnQM58",
+    //databaseURL: "https://www.gstatic.com/firebasejs/8.1.1/firebase.js",
+     storageBucket: "proofmemory-f5510.appspot.com",
+};
+firebase.initializeApp(firebaseConfig);  
+const database = firebase.database();
+    </script>
+    
+    <script src="/framework.js"></script>
+    <script src="/context.js"></script>
+    <script src = "/elmFolder/objects&functions.js"></script>
+    <script src="/elmFolder/elementFunctions.js"></script>
+    <script src="/elmFolder/createElm.js"></script>
+
+    
+   
+
+    <script src="set.js">
+        
+        
     </script>
     
 

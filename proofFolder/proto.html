@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="calculator" style="width: 600px; height: 400px;"></div>
+    <script src="/framework.js"></script>
+    <script src="/desmos/desmosSrc.js"></script>
+    <script>
+        var elt = document.getElementById('calculator');
+        var calculator = Desmos.GraphingCalculator(elt);
+        //calculator.setExpression({ id: 'graph1' });
+        //calculator.setExpression({latex: "y = x^2"});
+        //calculator.setExpression({latex:"y = x^3"});
+        elt.style.position = "absolute";
+        elt.style.left = 100;
+        elt.style.top = 100;
+        elt.style.overflow = "auto";
+        elt.style.resize = "both";
+        dragElement(elt);
+    </script>
+</body>
+</html>

@@ -10,12 +10,13 @@
     <svg width = "100000" height = "100000">
 
     </svg>
-    <div class = "context-menu">
+    <!--<div class = "context-menu">
       
         <div class="item">
           <i class="save"></i> save
         </div>
     </div>
+    -->
 
     <object id = "obj">
         <embed  height="500" src = "proofFolder/set.html">
@@ -24,34 +25,14 @@
     <script src="dataStorage.js"></script>
     <script src="framework.js"></script>
     <script src = "context.js"></script>
-    <script>
-        /*
-        let obj = document.querySelector("#obj");
-        obj.src = "proofFolder/set.html"
-        obj.style.border = "solid black 5px"
-        obj.style.position = "absolute";
-        obj.style.left = 200;
-        obj.style.top = 200;
-        obj.width = "1000";
-        obj.height = "1000";
-        
-        console.log(obj);
-        
-       function createEmbedded(src,width,height){
-           let obj = createHtmlElm("object");
-           let embed = document.createElement("embed");
-           obj.appendChild(embed);
-           embed.src = src;
-           embed.width = width;
-           embed.height = height;
-           
-            obj.style.left = 100;
-            obj.style.top = 100;
-            console.log(obj);
-           return obj;
-       }
-       let objer = createEmbedded("proofFolder/set.html",600,600);
-       */
-    </script>
+    <script src="embedSetUp.js"></script>
+    <script src = "imgSetUp.js"></script>
+    <script src = "elmFolder/objects&functions.js"></script>
+    <script src="elmFolder/elementFunctions.js"></script>
+    <script src="elmFolder/createElm.js"></script>
+    <!--<script src = "context.js"></script>-->
+    <script src = "proofer.js"></script>
+    
+    
 </body>
 </html>
