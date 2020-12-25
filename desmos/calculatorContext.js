@@ -58,7 +58,7 @@ calcDataBase.once('value',(e)=>{
             elm.classList.add(ele.uniqueClass);
             elm.setAttribute("dataKey",ele.dataKey);
             elm.style.border = "solid black 5px";
-            //Desmos.GraphingCalculator(elm);
+            Desmos.GraphingCalculator(elm);
             })
     }
     

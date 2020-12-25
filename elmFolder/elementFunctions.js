@@ -275,13 +275,26 @@ let cloneFunc = {
         
 
     },
+    cloneHtmlBox({mainObj,context}){
+        context.addEventListener("click", (e) => {    
+            let elm = mainObj.cloneNode(true);
+            body.appendChild(elm);
+            elm.style.position = "absolute";
+            elm.style.left = e.pageX;
+            elm.style.top = e.pageY ;
+            elm.style.width = 150;
+            elm.style.height = 150;
+            elm.style.border = "solid black 5px";
+            //elm.style.zIndex = -1;
+        });
+    },
     
 };
 
 
 let actionFunc = {
     
-    blueHover({mainObj}){
+    blueHoverSvg({mainObj}){
 
 
             window.addEventListener("mouseover",(e)=>{
@@ -296,14 +309,14 @@ let actionFunc = {
             });
 
     },
-    blueHoverText({mainObj}){
+    blueHoverHtml({mainObj}){
         window.addEventListener("mouseover",(e)=>{
-            if(e.target.classList.contains("text")){
+            if(e.target.classList.contains(mainObj.classList[0])){
                 e.target.style.borderColor = "blue";
             }
         });
         window.addEventListener("mouseout",(e)=>{
-            if(e.target.classList.contains("text")){
+            if(e.target.style.borderColor === "blue"){
                 e.target.style.borderColor = "black";
             }
         })
@@ -380,6 +393,19 @@ let saveFunc = {
                         eleClone.style.top = ele.top;
 
                     break;
+
+                    case "box":
+                        body.appendChild(eleClone);
+                        eleClone.style.position = "absolute";
+                        eleClone.style.left = ele.left;
+                        eleClone.style.top = ele.top;
+                        eleClone.style.width = ele.width;
+                        eleClone.style.height = ele.height;
+                        eleClone.style.border = "solid black 5px";
+                        //eleClone.style.zIndex = -1;
+
+                    break;
+
                     
                     default: 
                     body.appendChild(eleClone);
@@ -484,6 +510,18 @@ let saveFunc = {
                             
                 })
                 break;
+            case "box":
+                context.addEventListener("click",()=>{
+                    let elm = this.saveElmObj.lastElm(mainObj);
+                    saveObj.left = htmlNumberValue(elm,"left");
+                    saveObj.top = htmlNumberValue(elm,"top");
+                    saveObj.class = elm.classList[0];
+                    saveObj.width = htmlNumberValue(elm,"width");
+                    saveObj.height = htmlNumberValue(elm,"height");
+                    dataRef.push(saveObj);
+                    this.saveElmObj.saveDataKey(dataRef,elm);
+                    });                    
+                    break;
 
             default: 
                 //html elems
