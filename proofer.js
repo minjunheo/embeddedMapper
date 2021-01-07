@@ -25,3 +25,4 @@ ideaClass
 .addSubContext()
 .showIdea()
 .addIdea("cartesianProduct")
+.addIdea("powerSet");
