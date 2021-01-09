@@ -16,7 +16,7 @@ const imgObj1 = new ImgClass("showProofImg","imgData1")
 .addImg("/proofFolder/setBuilderImg1.PNG")
 .addImg("/proofImgFolder/cartesianImg.PNG")
 .addImg("/proofImgFolder/cartesianGraph.PNG")
-
+.addImg("/proofImgFolder/subsetTree.PNG")
 
 const ideaClass = new IdeaClass("createIdea","ideaData","idea");
 ideaClass
@@ -25,3 +25,7 @@ ideaClass
 .addSubContext()
 .showIdea()
 .addIdea("cartesianProduct")
+.addIdea("subSet")
+.addIdea("subSetExample")
+.addIdea("powerSet")
+
