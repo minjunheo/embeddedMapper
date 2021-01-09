@@ -25,7 +25,11 @@ ideaClass
 .addSubContext()
 .showIdea()
 .addIdea("cartesianProduct")
+<<<<<<< HEAD
 .addIdea("subSet")
 .addIdea("subSetExample")
 .addIdea("powerSet")
 
+=======
+.addIdea("powerSet");
+>>>>>>> ff6436dd63f562055915333137c2072dca64b61f
