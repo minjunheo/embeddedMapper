@@ -17,6 +17,24 @@ const imgObj1 = new ImgClass("showProofImg","imgData1")
 .addImg("/proofImgFolder/cartesianImg.PNG")
 .addImg("/proofImgFolder/cartesianGraph.PNG")
 .addImg("/proofImgFolder/subsetTree.PNG")
+.addImg("/proofImgFolder/powerSetEx2.PNG")
+.addImg("/proofImgFolder/poweSetEx3.jpg")
+.addImg("/proofImgFolder/setOperationsEx.jpg")
+.addImg("/proofImgFolder/setOperationsEx2.jpg")
+.addImg("/proofImgFolder/setOperationsEx3.jpg")
+.addImg("proofImgFolder/universalEx.jpg")
+.addImg("proofImgFolder/truthTableAnd.PNG")
+.addImg("proofImgFolder/TruthTableOr.PNG")
+.addImg("proofImgFolder/negationTable.PNG")
+.addImg("proofImgFolder/AndOrEx1.jpg")
+.addImg("proofImgFolder/AndOrEx2.jpg")
+.addImg("proofImgFolder/ifTable.jpg")
+.addImg("proofImgFolder/ifTableEx.jpg")
+
+
+
+
+
 
 const ideaClass = new IdeaClass("createIdea","ideaData","idea");
 ideaClass
@@ -25,11 +43,33 @@ ideaClass
 .addSubContext()
 .showIdea()
 .addIdea("cartesianProduct")
-<<<<<<< HEAD
 .addIdea("subSet")
 .addIdea("subSetExample")
 .addIdea("powerSet")
+.addIdea("powerSetExamples")
+.addIdea("setOperations")
+.addIdea("universalSet")
+.addIdea("logic")
+.addIdea("AndOr")
+.addIdea("IfThen")
 
-=======
-.addIdea("powerSet");
->>>>>>> ff6436dd63f562055915333137c2072dca64b61f
+
+
+
+
+
+
+
+const ideaButton = new IdeaButtonClass("createIdeaButton","ideaBtnData","ideaBtn");
+
+ideaButton
+.setUp("ideaBtnId","ideaSearchParentClass")
+.submitIdea()
+.addSubContext()
+.addIdea("powerSet")
+.addIdea("cartesianProduct")
+.addIdea("setOperations")
+.addIdea("universalSet")
+.addIdea("AndOr")
+
+

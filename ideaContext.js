@@ -266,10 +266,4 @@ class IdeaButtonClass{
 
 }
 
-const ideaButton = new IdeaButtonClass("createIdeaButton","ideaBtnData","ideaBtn");
 
-ideaButton
-.setUp("ideaBtnId","ideaSearchParentClass")
-.addIdea("powerSet")
-.submitIdea()
-.addSubContext()
