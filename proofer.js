@@ -28,8 +28,32 @@ const imgObj1 = new ImgClass("showProofImg","imgData1")
 .addImg("proofImgFolder/negationTable.PNG")
 .addImg("proofImgFolder/AndOrEx1.jpg")
 .addImg("proofImgFolder/AndOrEx2.jpg")
-.addImg("proofImgFolder/ifTable.jpg")
-.addImg("proofImgFolder/ifTableEx.jpg")
+.addImg("proofImgFolder/ifTable.PNG")
+.addImg("proofImgFolder/ifTableEx.PNG")
+.addImg("proofImgFolder/ifThenProblems.jpg")
+.addImg("proofImgFolder/biconditional.PNG")
+.addImg("proofImgFolder/truthStatementEx1.PNG")
+.addImg("proofImgFolder/truthStatementEx2.PNG")
+.addImg("proofImgFolder/logicalEqEx1.PNG")
+.addImg("proofImgFolder/logicalEqEx2.PNG")
+.addImg("proofImgFolder/deMorgan.PNG")
+.addImg("proofImgFolder/quantifierEx.PNG")
+.addImg("proofImgFolder/countingEx.PNG")
+.addImg("proofImgFolder/countSolutionA.PNG")
+.addImg("proofImgFolder/countSolutionB.PNG")
+.addImg("proofImgFolder/countSolutionC.PNG")
+.addImg("proofImgFolder/countSolutionD.PNG")
+.addImg("proofImgFolder/symbolFactorial.PNG")
+.addImg("proofImgFolder/factorialEx.PNG")
+.addImg("proofImgFolder/factorialProblems.PNG")
+.addImg("proofImgFolder/factorialSolutions.PNG")
+
+
+
+
+
+
+
 
 
 
@@ -52,8 +76,13 @@ ideaClass
 .addIdea("logic")
 .addIdea("AndOr")
 .addIdea("IfThen")
-
-
+.addIdea("biconditional")
+.addIdea("truthTableStatement")
+.addIdea("LogicalEquivalence")
+.addIdea("quantifiers")
+.addIdea("counting")
+.addIdea("factorials")
+.addIdea("subSetCount")
 
 
 
@@ -71,5 +100,9 @@ ideaButton
 .addIdea("setOperations")
 .addIdea("universalSet")
 .addIdea("AndOr")
+.addIdea("ifThen")
+.addIdea("biconditional")
+
+
 
 

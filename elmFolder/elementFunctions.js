@@ -185,6 +185,7 @@ let cloneFunc = {
                 saveObj.class = quad.classList[0];
 
                 quad.setAttribute("fill-opacity",0);
+                quad.setAttribute("stroke-width",5);
 
                 circle1.remove();
                 circle2.remove();
